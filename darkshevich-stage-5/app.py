@@ -307,11 +307,11 @@ def page_eda(df):
     null_df = pd.DataFrame({"Количество нулей": null_cnt, "% от выборки": null_pct})
     st.dataframe(null_df, use_container_width=True)
 
-    fig, ax = plt.subplots(figsize=(7, 5))
+    fig, ax = plt.subplots(figsize=(7, 3.5))
     bars = ax.barh(null_df.index, null_df["% от выборки"], color=ORANGE, alpha=0.8)
     for bar, v in zip(bars, null_df["% от выборки"]):
         ax.text(bar.get_width() + 0.3, bar.get_y() + bar.get_height() / 2,
-                f"{v}%", va="center", fontsize=9)
+                f"{v}%", va="center", fontsize=8)
     ax.set_xlabel("% нулевых значений")
     ax.set_title("Нулевые значения — физиологически невозможные → скрытые пропуски")
     ax.grid(axis="x", alpha=0.3)
