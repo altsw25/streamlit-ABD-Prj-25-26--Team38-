@@ -277,7 +277,7 @@ def page_eda(df):
     fig, ax = plt.subplots(figsize=(6, 3.5))
     bars = ax.bar(["0 — нет диабета", "1 — диабет"], cnt.values,
                   color=[BLUE, ORANGE], alpha=0.85, width=0.5)
-for bar, v in zip(bars, cnt.values):
+    for bar, v in zip(bars, cnt.values):
     ax.text(
         bar.get_x() + bar.get_width()/2,
         bar.get_height()/2,      # центр столбца
