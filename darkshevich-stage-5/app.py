@@ -277,9 +277,17 @@ def page_eda(df):
     fig, ax = plt.subplots(figsize=(6, 3.5))
     bars = ax.bar(["0 — нет диабета", "1 — диабет"], cnt.values,
                   color=[BLUE, ORANGE], alpha=0.85, width=0.5)
-    for bar, v in zip(bars, cnt.values):
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 5,
-                f"{v}\n({v/len(df)*100:.1f}%)", ha="center", va="bottom", fontsize=10)
+for bar, v in zip(bars, cnt.values):
+    ax.text(
+        bar.get_x() + bar.get_width()/2,
+        bar.get_height()/2,      # центр столбца
+        f"{v}\n({v/len(df)*100:.1f}%)",
+        ha="center",
+        va="center",
+        fontsize=10,
+        fontweight="bold",
+        color="white"
+    )
     ax.set_ylabel("Количество")
     ax.set_title("Дисбаланс классов: 65.1% / 34.9%")
     ax.grid(axis="y", alpha=0.3)
