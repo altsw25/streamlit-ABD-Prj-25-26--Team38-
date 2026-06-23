@@ -323,11 +323,11 @@ def page_eda(df):
     features = [c for c in df.columns if c != "Outcome"]
     selected = st.selectbox("Выберите признак:", features, index=1)
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4))
+    fig, (ax1, ax2) = plt.subplots(0.5, 2, figsize=(11, 4))
 
     for outcome, color, label in [(0, BLUE, "Нет диабета"), (1, ORANGE, "Есть диабет")]:
         data = df[df["Outcome"] == outcome][selected]
-        ax1.hist(data, bins=30, alpha=0.55, color=color, label=label, density=True)
+        ax1.hist(data, bins=20, alpha=0.55, color=color, label=label, density=True)
         try:
             data[data > 0].plot.kde(ax=ax1, color=color, lw=1.8)
         except Exception:
