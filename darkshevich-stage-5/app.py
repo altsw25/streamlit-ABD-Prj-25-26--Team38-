@@ -859,9 +859,6 @@ def page_predict(df):
                   extent=[0, 1, 0, 1])
         ax.axvline(prob, color="white", lw=3)
         ax.scatter([prob], [0.5], color="white", s=120, zorder=5)
-        ax.text(prob, 1.05, f"{prob*100:.1f}%", ha="center", va="bottom",
-                color="white", fontsize=12, fontweight="bold",
-                transform=ax.get_xaxis_transform())
         ax.set_xticks([0, 0.4, 0.7, 1.0])
         ax.set_xticklabels(["0%\n(нет риска)", "40%\n(умеренный)", "70%\n(высокий)", "100%"])
         ax.set_yticks([])
