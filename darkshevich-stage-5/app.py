@@ -327,7 +327,7 @@ def page_eda(df):
 
     for outcome, color, label in [(0, BLUE, "Нет диабета"), (1, ORANGE, "Есть диабет")]:
         data = df[df["Outcome"] == outcome][selected]
-        ax1.hist(data, bins=20, alpha=0.55, color=color, label=label, density=True)
+        ax1.hist(data, bins=30, alpha=0.55, color=color, label=label, density=True)
         try:
             data[data > 0].plot.kde(ax=ax1, color=color, lw=1.8)
         except Exception:
